@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+:root {
+  --background-main: #F6F3EE;
+  --background-soft: #E8E2D8;
+  --text-primary: #2A2A2A;
+  --accent-brass: #B08D57;
+  --border-soft: #DCD6CC;
+  /* Aliases for minimal refactor */
+  --background: var(--background-main);
+  --foreground: var(--text-primary);
+  --gold: var(--accent-brass);
+  --charcoal: var(--text-primary);
+  --beige: var(--background-main);
+  --white: #ffffff;
+  --soft-gray: var(--background-soft);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-gold: var(--gold);
+  --color-charcoal: var(--charcoal);
+  --color-beige: var(--beige);
+  --color-lux-border: var(--border-soft);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background-color: var(--background-main);
+  color: var(--text-primary);
+}
+
+.lux-container {
+  @apply mx-auto w-full px-4 sm:px-6 lg:px-10 max-w-6xl;
+}
+
+.lux-section {
+  @apply py-14 sm:py-18 lg:py-24;
+}
+
+.lux-card {
+  @apply rounded-2xl border border-[color:var(--border-soft)] bg-white/90 shadow-[0_8px_32px_rgba(42,42,42,0.08)] transition-all duration-300 hover:shadow-[0_16px_48px_rgba(42,42,42,0.12)];
+}
+
+.lux-overlay-soft {
+  background: linear-gradient(to bottom, rgba(42, 42, 42, 0.35) 0%, rgba(42, 42, 42, 0.5) 100%);
+}
+
+.lux-hero-overlay {
+  background: linear-gradient(to bottom, rgba(42, 42, 42, 0.25) 0%, rgba(42, 42, 42, 0.55) 100%);
+}
+
+.lux-cta {
+  @apply inline-flex items-center justify-center rounded-full text-[11px] font-semibold uppercase tracking-[0.28em] transition-[transform,box-shadow,letter-spacing,background-color] duration-300;
+}
+
+.lux-cta-primary {
+  background-color: var(--accent-brass);
+  color: var(--text-primary);
+  box-shadow: 0 8px 24px rgba(176, 141, 87, 0.35);
+}
+
+.lux-cta-primary:hover {
+  letter-spacing: 0.32em;
+  box-shadow: 0 12px 32px rgba(176, 141, 87, 0.4);
+}
+
+.lux-grain {
+  pointer-events: none;
+  background-image: repeating-radial-gradient(
+    circle at 0 0,
+    rgba(42, 42, 42, 0.06),
+    rgba(42, 42, 42, 0.06) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  opacity: 0.5;
+  mix-blend-mode: soft-light;
+}
+
+.lux-input {
+  @apply w-full rounded-full border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/60 outline-none transition focus:border-[color:var(--accent-brass)] focus:bg-white/15;
+}
+
+.lux-input-dark {
+  @apply w-full rounded-full border border-[color:var(--border-soft)] bg-white px-4 py-3 text-sm text-[color:var(--text-primary)] placeholder:text-neutral-500 outline-none transition focus:border-[color:var(--accent-brass)] focus:bg-white;
+}
+
+.lux-textarea-dark {
+  @apply w-full rounded-3xl border border-[color:var(--border-soft)] bg-white px-4 py-3 text-sm text-[color:var(--text-primary)] placeholder:text-neutral-500 outline-none transition focus:border-[color:var(--accent-brass)] focus:bg-white min-h-[140px];
+}
+
+.lux-badge {
+  @apply inline-flex items-center rounded-full border border-white/25 bg-white/15 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white/90;
+}
+
+.lux-nav-blur {
+  @apply backdrop-blur-xl bg-[color:var(--background-soft)]/95 border-b border-[color:var(--border-soft)];
+}
+
+.font-playfair {
+  font-family: var(--font-playfair), serif;
+}
