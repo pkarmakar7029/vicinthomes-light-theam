@@ -5,14 +5,20 @@ import StatsSection from "@/components/StatsSection";
 export const metadata: Metadata = {
   title: "About Vicint Homes",
   description:
-    "Discover Vicint Estates’ vision, legacy, and philosophy of crafting ultra-luxury residences across India’s most coveted neighbourhoods.",
+    "Vicint Marquis is a destination in luxury living in Ranchi, Jharkhand. About us, our vision, mission, and leadership. Quality, aesthetics, style with a difference.",
 };
+
+const ABOUT_HERO_IMAGE =
+  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200";
+const CEO_IMAGE =
+  "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400";
 
 export default function AboutPage() {
   return (
     <div className="bg-[color:var(--background-main)] text-[color:var(--text-primary)] pt-28">
+      {/* Hero intro with image */}
       <section className="lux-section border-t border-[color:var(--border-soft)]/40">
-        <div className="lux-container grid gap-10 md:grid-cols-[1.4fr,1fr] md:items-end">
+        <div className="lux-container grid gap-10 md:grid-cols-[1.4fr,1fr] md:items-center">
           <div>
             <p className="text-[11px] uppercase tracking-[0.36em] text-[color:var(--accent-brass)]">
               About Vicint Marquis
@@ -20,126 +26,120 @@ export default function AboutPage() {
             <h1 className="mt-4 font-playfair text-4xl sm:text-5xl lg:text-6xl tracking-[-0.04em] text-[color:var(--text-primary)]">
               A destination in luxury living in Ranchi, Jharkhand.
             </h1>
-            <p className="mt-5 max-w-2xl text-sm sm:text-base lg:text-lg text-neutral-700">
-              Vicint Marquis is exclusively designed for those who value the best one can own. It is a mark of aspiration for those in the top echelon of the contemporary social strata. Vicint Marquis is where connoisseurs of premium living find inspiration and get pampered.
+            <p className="mt-5 max-w-2xl text-sm sm:text-base lg:text-lg text-neutral-700 leading-relaxed">
+              Vicint Marquis is a destination in &apos;luxury living&apos; that is blossoming in Ranchi, the quaint city in Jharkhand. Exclusively designed and designated for those who value the best one can own. It is a mark of aspiration for those in the top echelon of the contemporary social strata.
+            </p>
+            <p className="mt-4 max-w-2xl text-sm sm:text-base text-neutral-700 leading-relaxed">
+              Vicint Marquis is where the connoisseurs of premium living find inspiration and get pampered. Here, one can simply explore life&apos;s joys and comforts, that are widely admired. They can enjoy the marvellous and timeless standards and understand why it is one of the finest examples of a unique lifestyle that&apos;s truly grand.
             </p>
           </div>
-          <div className="lux-card px-5 py-5 text-sm sm:text-base text-neutral-800">
-            <p className="text-[11px] uppercase tracking-[0.24em] text-[color:var(--accent-brass)]">
-              Why Choose Us
-            </p>
-            <p className="mt-2">
-              Skilled Professionals – Our team brings experience and precision to every project with unmatched dedication.
-            </p>
-            <p className="mt-4 text-[11px] uppercase tracking-[0.24em] text-[color:var(--accent-brass)]">
-              Quality &amp; Support
-            </p>
-            <p className="mt-2">
-              Quality Work – We deliver exceptional results with care and attention to detail. 24/7 Support – Our dedicated team is always available to assist you anytime.
-            </p>
+          <div className="lux-card overflow-hidden">
+            <div
+              className="aspect-[4/3] bg-cover bg-center"
+              style={{ backgroundImage: `url('${ABOUT_HERO_IMAGE}')` }}
+            />
           </div>
+        </div>
+      </section>
+
+      {/* The Vicint Marquis – Quality, Aesthetics, Style */}
+      <section className="lux-section border-t border-[color:var(--border-soft)]/40 bg-[color:var(--background-soft)]/40">
+        <div className="lux-container">
+          <SectionHeading
+            eyebrow="The Vicint Marquis"
+            title="Quality · Aesthetics · Style with a difference."
+          />
+          <p className="mt-6 max-w-3xl text-sm sm:text-base text-neutral-700 leading-relaxed">
+            Vicint Marquis offers a blend of imagination, innovation, and luxury in a fresh, green setting designed to inspire active living. Here the most fascinating architectural designs blended with modern day amenities transcend time. It is a living statement for those who have truly arrived in life.
+          </p>
+          <p className="mt-4 max-w-3xl text-sm sm:text-base text-neutral-700 leading-relaxed">
+            These luxuries are designed to suit a mindset that seeks exclusivity and tranquillity. Inspired by a rich and stylish life, it has been chiselled with opulence and modern-day strokes. Experience refined comfort, thoughtful design, and an exclusive lifestyle crafted for those who seek more.
+          </p>
         </div>
       </section>
 
       <StatsSection />
 
+      {/* Leadership – Pankaj Kumar */}
       <section className="lux-section border-t border-[color:var(--border-soft)]/40">
         <div className="lux-container grid gap-12 lg:grid-cols-2 lg:items-start">
           <div>
             <SectionHeading
-              eyebrow="Our Services"
-              title="Building construction, renovation, design &amp; more."
+              eyebrow="Leadership"
+              title="Pankaj Kumar"
+              subtitle="CEO, Vicint Homes Pvt. Ltd."
             />
-            <div className="mt-5 space-y-4 text-sm text-neutral-700">
-              <p>
-                We offer best-in-class service quality with customer satisfaction at the core. Beautiful, aesthetically stunning and functional designs tailored to modern trends. Professional specialists bringing experience and expertise.
-              </p>
-              <p>
-                Our service areas include Building Construction, House Renovation, Architecture Design, Interior Design, and Painting. Clear and timely documentation for transparency. Planning support from idea to execution. Creative experts delivering unique outcomes.
-              </p>
+            <div className="mt-6 overflow-hidden rounded-2xl border border-[color:var(--border-soft)] bg-[color:var(--background-soft)]/50">
+              <div
+                className="aspect-[4/3] bg-cover bg-center"
+                style={{ backgroundImage: `url('${CEO_IMAGE}')` }}
+              />
             </div>
+            <p className="mt-6 text-sm text-neutral-700 leading-relaxed">
+              Pankaj Kumar is a qualified Chartered Accountant and an MBA. He forayed into the world of real estate over a decade ago. With a belief that he can create &apos;Spaces for Smiles and Happiness&apos;, it is his endeavor to live and deliver his &apos;commitment to excellence&apos;.
+            </p>
+            <p className="mt-4 text-sm text-neutral-700 leading-relaxed">
+              He is driven by his passion of bringing metropolitan culture to the developing cities and the flavor of his vision can be felt through this project. He is dedicated in creating value by infusing energetic, positive, result-driven work. He has always sought to invest in relationships and propagates ethics built on a commitment towards customer service and bespoke solutions.
+            </p>
+            <p className="mt-4 text-sm text-neutral-700 leading-relaxed">
+              He is spearheading the development of Vicint Marquis, one of his luxurious residential and commercial projects in Ranchi. He is supported by a strong team of professionals working tirelessly to fulfill his vision. Many more such projects are in the pipeline in Ranchi.
+            </p>
           </div>
 
           <div className="space-y-8">
             <div className="lux-card px-6 py-6">
               <p className="text-[11px] uppercase tracking-[0.26em] text-[color:var(--accent-brass)]">
-                Awards & Recognition
+                Vision
               </p>
-              <ul className="mt-4 space-y-3 text-sm text-neutral-700">
-                <li>
-                  • 2025 – Global Residential Design Award for Terraces of
-                  Indiranagar (Monocle Design Journal)
-                </li>
-                <li>
-                  • 2024 – Excellence in Boutique Luxury Development (CRE
-                  Leadership Council)
-                </li>
-                <li>
-                  • 2023 – India&apos;s Most Trusted Emerging Developer (Ultra-HNI
-                  Insights Survey)
-                </li>
-              </ul>
+              <p className="mt-3 text-sm text-neutral-700 leading-relaxed">
+                To become the most preferred real estate brand in India by booming for benchmark quality, customer centric approach, robust engineering, uncompromising business ethics and transparency in all spheres of business conduct.
+              </p>
             </div>
-
             <div className="lux-card px-6 py-6">
               <p className="text-[11px] uppercase tracking-[0.26em] text-[color:var(--accent-brass)]">
-                Our Timeline
+                Mission
               </p>
-              <div className="mt-4 space-y-5 border-l border-neutral-200 pl-4 text-sm text-neutral-700">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.24em] text-neutral-500">
-                    2008
-                  </p>
-                  <p className="mt-1 font-medium text-[color:var(--text-primary)]">
-                    Vicint is founded in South Mumbai
-                  </p>
-                  <p className="mt-1 text-xs">
-                    First development focused on low-rise, sea-facing
-                    residences for legacy families.
-                  </p>
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-[0.24em] text-neutral-500">
-                    2014
-                  </p>
-                  <p className="mt-1 font-medium text-[color:var(--text-primary)]">
-                    Expansion to Bengaluru
-                  </p>
-                  <p className="mt-1 text-xs">
-                    Launch of Terraces portfolio, bringing courtyard living into
-                    the heart of the city.
-                  </p>
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-[0.24em] text-neutral-500">
-                    2021
-                  </p>
-                  <p className="mt-1 font-medium text-[color:var(--text-primary)]">
-                    Entry into Hyderabad & NCR
-                  </p>
-                  <p className="mt-1 text-xs">
-                    Hilltop and golf-view residences designed for globally
-                    mobile Indian families.
-                  </p>
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-[0.24em] text-neutral-500">
-                    2026
-                  </p>
-                  <p className="mt-1 font-medium text-[color:var(--text-primary)]">
-                    Next chapter of ultra-luxury
-                  </p>
-                  <p className="mt-1 text-xs">
-                    A curated pipeline of rare, city-defining addresses across
-                    India&apos;s most enduring neighbourhoods.
-                  </p>
-                </div>
-              </div>
+              <p className="mt-3 text-sm text-neutral-700 leading-relaxed">
+                To enable customers to shift from rent-driven lifestyles to owning cost-competitive, sustainable and luxurious homes that are valuable investments for their families.
+              </p>
             </div>
+            <div className="lux-card px-6 py-6">
+              <p className="text-[11px] uppercase tracking-[0.26em] text-[color:var(--accent-brass)]">
+                Goals
+              </p>
+              <p className="mt-3 text-sm text-neutral-700 leading-relaxed">
+                To continue to dream big as the company grows, exploring new ways of raising the bar for quality, value, and integrated living.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Service Areas */}
+      <section className="lux-section border-t border-[color:var(--border-soft)]/40">
+        <div className="lux-container">
+          <SectionHeading
+            eyebrow="Service Areas"
+            title="Building Construction, House Renovation, Design &amp; more."
+          />
+          <div className="mt-8 flex flex-wrap gap-3">
+            {[
+              "Building Construction",
+              "House Renovation",
+              "Architecture Design",
+              "Interior Design",
+              "Painting",
+            ].map((area) => (
+              <span
+                key={area}
+                className="rounded-full border border-[color:var(--border-soft)] bg-white/80 px-5 py-2.5 text-sm font-medium text-[color:var(--text-primary)]"
+              >
+                {area}
+              </span>
+            ))}
           </div>
         </div>
       </section>
     </div>
   );
 }
-
