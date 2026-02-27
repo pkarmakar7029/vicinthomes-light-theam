@@ -13,7 +13,7 @@ const navLinks = [
   { href: "/leadership", label: "Leadership" },
   { href: "/news", label: "Media" },
   { href: "/investors", label: "Investors" },
-  { href: "/contact", label: "Contact" },
+  // { href: "/contact", label: "Contact" },
 ];
 
 export default function Navbar() {
