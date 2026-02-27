@@ -7,7 +7,7 @@ import { HiOutlineVolumeOff, HiOutlineVolumeUp } from "react-icons/hi";
 
 // Your Cloudinary video URL — replace with your actual link from Cloudinary Media Library
 const HERO_VIDEO_SRC =
-  "https://res.cloudinary.com/dexqgs5cm/video/upload/v1772090017/Vicint_Web_Video_C_itqytq.mp4";
+  "https://res.cloudinary.com/dexqgs5cm/video/upload/v1772197165/vicint_itfqoq.mp4";
 const HERO_FALLBACK_IMAGE =
   "https://images.unsplash.com/photo-1513584684374-8bab748fbf90?w=1920";
 

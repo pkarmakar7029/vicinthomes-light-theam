@@ -13,7 +13,7 @@ const navLinks = [
   { href: "/leadership", label: "Leadership" },
   { href: "/news", label: "Media" },
   { href: "/investors", label: "Investors" },
-  // { href: "/contact", label: "Contact" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Navbar() {
@@ -83,7 +83,7 @@ export default function Navbar() {
                 </Link>
               ))}
               <Link
-                href="/contact"
+                href="/private-consultation"
                 className="rounded-full border border-[color:var(--accent-brass)]/80 bg-[color:var(--accent-brass)]/20 px-4 py-2 text-[10px] font-semibold uppercase tracking-widest transition-all duration-100 hover:bg-[color:var(--accent-brass)]/40 hover:border-[color:var(--accent-brass)] hover:text-[color:var(--text-primary)] sm:px-5 sm:py-2.5 sm:text-xs lg:px-6 lg:py-3"
                 style={overHero ? { textShadow: "0 1px 2px rgba(0,0,0,0.4)" } : undefined}
               >
@@ -148,7 +148,7 @@ export default function Navbar() {
               </div>
               <div className="mt-8">
                 <Link
-                  href="/contact"
+                  href="/private-consultation"
                   onClick={() => setOpen(false)}
                   className="flex w-full items-center justify-center rounded-full border border-[color:var(--accent-brass)] bg-[color:var(--accent-brass)]/20 px-6 py-3.5 text-[10px] font-semibold uppercase tracking-widest text-[color:var(--text-primary)] transition-colors hover:bg-[color:var(--accent-brass)]/40"
                 >
