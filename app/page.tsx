@@ -74,7 +74,7 @@ export default function Home() {
               <div
                 className="aspect-[4/3] bg-cover bg-center"
                 style={{
-                  backgroundImage: `url('/mainbuilding02.jpg')`,
+                  backgroundImage: `url('/mainbuilding.jpg')`,
                 }}
               />
             </div>

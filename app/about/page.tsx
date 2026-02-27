@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 const ABOUT_HERO_IMAGE = "/4copy.jpeg";
-const CEO_IMAGE = "/PankajKumar.png";
+const CEO_IMAGE = "/pankaj01.png";
 
 export default function AboutPage() {
   return (

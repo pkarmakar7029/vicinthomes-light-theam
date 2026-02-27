@@ -5,7 +5,7 @@ export type Leader = {
 };
 
 export const leaders: Leader[] = [
-  { name: "Pankaj Kumar", title: "CEO", image: "/PankajKumar01.png" },
+  { name: "Pankaj Kumar", title: "CEO", image: "/pankaj02.png" },
   { name: "Pushpalata Gupta", title: "Board of Directors", image: "/dummy.webp" },
   { name: "Mohd Sahil", title: "Board of Directors", image: "/dummy.webp" },
   { name: "Manoj Kumar Bharti", title: "Board of Directors", image: "/dummy.webp" },
