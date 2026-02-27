@@ -39,7 +39,7 @@ export default function Navbar() {
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.1, ease: "easeOut" }}
           className={`w-full flex items-center justify-between px-4 py-2.5 sm:px-6 sm:py-3 md:px-8 md:py-3.5 lg:px-12 lg:py-4 ${
             isScrolled
               ? "bg-white/40 backdrop-blur-sm border-b border-white/10 text-[color:var(--text-primary)]"
@@ -76,7 +76,7 @@ export default function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="relative transition-colors duration-200 hover:text-[color:var(--accent-brass)] focus:text-[color:var(--accent-brass)] after:absolute after:left-0 after:bottom-[-2px] after:h-px after:w-0 after:bg-[color:var(--accent-brass)] after:transition-all after:duration-200 hover:after:w-full"
+                  className="relative transition-colors duration-100 hover:text-[color:var(--accent-brass)] focus:text-[color:var(--accent-brass)] after:absolute after:left-0 after:bottom-[-2px] after:h-px after:w-0 after:bg-[color:var(--accent-brass)] after:transition-all after:duration-100 hover:after:w-full"
                   style={overHero ? { textShadow } : undefined}
                 >
                   {item.label}
@@ -84,7 +84,7 @@ export default function Navbar() {
               ))}
               <Link
                 href="/contact"
-                className="rounded-full border border-[color:var(--accent-brass)]/80 bg-[color:var(--accent-brass)]/20 px-4 py-2 text-[10px] font-semibold uppercase tracking-widest transition-all duration-200 hover:bg-[color:var(--accent-brass)]/40 hover:border-[color:var(--accent-brass)] hover:text-[color:var(--text-primary)] sm:px-5 sm:py-2.5 sm:text-xs lg:px-6 lg:py-3"
+                className="rounded-full border border-[color:var(--accent-brass)]/80 bg-[color:var(--accent-brass)]/20 px-4 py-2 text-[10px] font-semibold uppercase tracking-widest transition-all duration-100 hover:bg-[color:var(--accent-brass)]/40 hover:border-[color:var(--accent-brass)] hover:text-[color:var(--text-primary)] sm:px-5 sm:py-2.5 sm:text-xs lg:px-6 lg:py-3"
                 style={overHero ? { textShadow: "0 1px 2px rgba(0,0,0,0.4)" } : undefined}
               >
                 Private Consultation

@@ -17,7 +17,7 @@ export default function TestimonialCard({ testimonial }: Props) {
   return (
     <motion.article
       whileHover={{ y: -6 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={{ duration: 0.1, ease: "easeOut" }}
       className="rounded-3xl border border-white/20 bg-white/10 px-8 py-8 shadow-[0_12px_40px_rgba(0,0,0,0.25)] backdrop-blur-xl"
     >
       <div className="flex items-center gap-2 text-[color:var(--accent-brass)]">

@@ -33,7 +33,7 @@ export default function StatsSection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.08 }}
+              transition={{ duration: 0.1, ease: "easeOut", delay: index * 0.08 }}
               className="rounded-2xl border border-white/15 bg-white/10 px-5 py-5"
             >
               <p className="text-sm text-white/60">{stat.label}</p>

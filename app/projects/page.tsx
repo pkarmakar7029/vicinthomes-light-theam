@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ProjectsFilterGrid from "@/components/ProjectsFilterGrid";
-import { projects } from "@/lib/projectsData";
+import { getAllProjectsDisplay } from "@/lib/projectsData";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -9,6 +9,8 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectsPage() {
+  const allProjects = getAllProjectsDisplay();
+
   return (
     <div className="bg-[color:var(--background-main)] text-[color:var(--text-primary)] pt-28">
       <section className="lux-section border-t border-[color:var(--border-soft)]/60">
@@ -37,7 +39,7 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      <ProjectsFilterGrid projects={projects} />
+      <ProjectsFilterGrid projects={allProjects} />
     </div>
   );
 }

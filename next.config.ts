@@ -9,6 +9,12 @@ const nextConfig: NextConfig = {
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "assets-news-bcdn.dailyhunt.in",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };

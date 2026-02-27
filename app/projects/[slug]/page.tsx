@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ContactForm from "@/components/ContactForm";
-import { projects } from "@/lib/projectsData";
+import { getProjectBySlug, getAllProjectsDisplay } from "@/lib/projectsData";
 
 type Props = {
   params: { slug: string };
 };
 
 export function generateMetadata({ params }: Props): Metadata {
-  const project = projects.find((p) => p.slug === params.slug);
+  const project = getProjectBySlug(params.slug);
   if (!project) {
     return {
       title: "Project not found",
@@ -16,16 +16,16 @@ export function generateMetadata({ params }: Props): Metadata {
   }
   return {
     title: project.name,
-    description: project.shortDescription,
+    description: project.overview,
   };
 }
 
 export function generateStaticParams() {
-  return projects.map((project) => ({ slug: project.slug }));
+  return getAllProjectsDisplay().map((project) => ({ slug: project.slug }));
 }
 
 export default function ProjectDetailPage({ params }: Props) {
-  const project = projects.find((p) => p.slug === params.slug);
+  const project = getProjectBySlug(params.slug);
 
   if (!project) {
     return notFound();

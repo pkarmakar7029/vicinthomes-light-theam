@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import HeroVideo from "@/components/HeroVideo";
 import SectionHeading from "@/components/SectionHeading";
 import ProjectCard from "@/components/ProjectCard";
@@ -6,8 +7,9 @@ import LeadershipCard from "@/components/LeadershipCard";
 import TestimonialCard from "@/components/TestimonialCard";
 import NewsCard from "@/components/NewsCard";
 import StatsSection from "@/components/StatsSection";
-import { projects } from "@/lib/projectsData";
+import { getAllProjectsDisplay } from "@/lib/projectsData";
 import { newsItems } from "@/lib/newsData";
+import { leaders } from "@/lib/leadersData";
 
 export const metadata: Metadata = {
   title: "Vicint Homes | Professional Builder For Your Dream Home",
@@ -16,30 +18,8 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  const featuredProjects = projects.slice(0, 3);
-  // TODO: Replace with final production image
-  const LEADERSHIP_IMAGES = {
-    arjun: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400",
-    natasha: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400",
-    rohan: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400",
-  };
-  const leadershipPreview = [
-    {
-      name: "Arjun Mehra",
-      title: "Founder & Chairman",
-      image: LEADERSHIP_IMAGES.arjun,
-    },
-    {
-      name: "Natasha Bedi",
-      title: "Chief Design Officer",
-      image: LEADERSHIP_IMAGES.natasha,
-    },
-    {
-      name: "Rohan Iyer",
-      title: "Director – Investments",
-      image: LEADERSHIP_IMAGES.rohan,
-    },
-  ];
+  const allProjects = getAllProjectsDisplay();
+  const featuredProjects = allProjects.slice(0, 3);
 
   const testimonials = [
     {
@@ -64,7 +44,7 @@ export default function Home() {
 
   const latestNews = newsItems.slice(0, 3);
 
-  const spotlightProject = projects[0];
+  const spotlightProject = allProjects[0];
 
   return (
     <div className="bg-[color:var(--background-main)] text-[color:var(--text-primary)]">
@@ -81,9 +61,12 @@ export default function Home() {
             <p className="mt-6 text-sm sm:text-base text-neutral-700 leading-relaxed">
               Vicint Marquis is where connoisseurs of premium living find inspiration and get pampered. Here, one can explore life&apos;s joys and comforts that are widely admired and understand why it is one of the finest examples of a truly grand lifestyle.
             </p>
-            <button className="mt-8 inline-flex items-center rounded-full lux-cta lux-cta-primary px-8 py-3 text-xs sm:text-sm font-medium tracking-[0.22em] uppercase transition hover:scale-[1.02]">
+            <Link
+              href="/about"
+              className="mt-8 inline-flex items-center rounded-full lux-cta lux-cta-primary px-8 py-3 text-xs sm:text-sm font-medium tracking-[0.22em] uppercase transition hover:scale-[1.02]"
+            >
               Discover Our Story
-            </button>
+            </Link>
           </div>
           <div className="relative">
             <div className="lux-card overflow-hidden">
@@ -91,7 +74,7 @@ export default function Home() {
               <div
                 className="aspect-[4/3] bg-cover bg-center"
                 style={{
-                  backgroundImage: `url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200')`,
+                  backgroundImage: `url('/mainbuilding02.jpg')`,
                 }}
               />
             </div>
@@ -127,7 +110,7 @@ export default function Home() {
               <div
                 className="absolute inset-0 bg-cover bg-center opacity-80"
                 style={{
-                  backgroundImage: `url('${spotlightProject.heroImage}')`,
+                  backgroundImage: `url('${spotlightProject.thumbnail}')`,
                 }}
               />
               <div className="lux-overlay-soft absolute inset-0" />
@@ -140,17 +123,26 @@ export default function Home() {
                   <p className="mt-3 text-sm sm:text-base text-white/80">
                     {spotlightProject.location} • {spotlightProject.status}
                   </p>
-                  <p className="mt-5 text-sm sm:text-base text-white/80 max-w-lg">
-                    {spotlightProject.shortDescription}
-                  </p>
+                  {spotlightProject.shortDescription ? (
+                    <p className="mt-5 text-sm sm:text-base text-white/80 max-w-lg">
+                      {spotlightProject.shortDescription}
+                    </p>
+                  ) : spotlightProject.cost != null ? (
+                    <p className="mt-5 text-sm sm:text-base text-white/80 max-w-lg">
+                      ₹ {spotlightProject.cost} Cr
+                    </p>
+                  ) : null}
                 </div>
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4 lg:flex-col lg:items-end">
                   <button className="inline-flex items-center rounded-full bg-white/90 px-7 py-3 text-xs sm:text-sm font-medium tracking-[0.22em] text-[color:var(--text-primary)] uppercase shadow-[0_8px_24px_rgba(0,0,0,0.15)] transition hover:bg-white hover:scale-[1.02]">
                     Download Brochure
                   </button>
-                  <button className="inline-flex items-center rounded-full border border-white/40 bg-transparent px-7 py-3 text-xs sm:text-sm font-medium tracking-[0.22em] text-white uppercase transition hover:bg-white/15">
+                  <Link
+                    href="/projects"
+                    className="inline-flex items-center rounded-full border border-white/40 bg-transparent px-7 py-3 text-xs sm:text-sm font-medium tracking-[0.22em] text-white uppercase transition hover:bg-white/15"
+                  >
                     View Project
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -167,7 +159,7 @@ export default function Home() {
             title="Stewards of thoughtful, long-horizon development."
           />
           <div className="mt-10 grid gap-8 md:grid-cols-3">
-            {leadershipPreview.map((leader) => (
+            {leaders.slice(0, 3).map((leader) => (
               <LeadershipCard key={leader.name} leader={leader} />
             ))}
           </div>
@@ -180,6 +172,7 @@ export default function Home() {
             eyebrow="Testimonials"
             title="Quietly spoken. Deeply felt."
             align="center"
+            inverted
           />
           <div className="mt-10 grid gap-8 md:grid-cols-3">
             {testimonials.map((testimonial) => (
@@ -214,9 +207,12 @@ export default function Home() {
           <p className="mt-4 max-w-xl text-sm sm:text-base text-white/80">
             Contact us for building construction, house renovation, architecture design, interior design, and painting. Our dedicated team is always available to assist you.
           </p>
-          <button className="mt-8 inline-flex items-center rounded-full lux-cta lux-cta-primary px-10 py-3 text-xs sm:text-sm font-medium tracking-[0.22em] uppercase transition hover:scale-[1.03]">
+          <Link
+            href="/contact"
+            className="mt-8 inline-flex items-center rounded-full lux-cta lux-cta-primary px-10 py-3 text-xs sm:text-sm font-medium tracking-[0.22em] uppercase transition hover:scale-[1.03]"
+          >
             Contact Us
-          </button>
+          </Link>
         </div>
       </section>
     </div>

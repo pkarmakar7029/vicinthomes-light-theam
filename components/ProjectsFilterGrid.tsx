@@ -2,17 +2,17 @@
 
 import { useState } from "react";
 import ProjectCard from "@/components/ProjectCard";
-import type { Project, ProjectStatus } from "@/lib/projectsData";
+import type { ProjectDisplay, ProjectStatus } from "@/lib/projectsData";
 import SectionHeading from "@/components/SectionHeading";
 
 type Props = {
-  projects: Project[];
+  projects: ProjectDisplay[];
 };
 
 const filters: (ProjectStatus | "All")[] = [
   "All",
-  "Ongoing",
   "Completed",
+  "Ongoing",
   "Upcoming",
 ];
 

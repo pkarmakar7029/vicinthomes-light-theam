@@ -4,43 +4,20 @@ export type NewsItem = {
   publication: string;
   date: string;
   excerpt: string;
+  url: string;
+  image: string;
 };
 
 export const newsItems: NewsItem[] = [
   {
-    slug: "vicint-altair-sets-new-benchmark-marine-drive",
-    title:
-      "Vicint’s Altair Residences Sets a New Benchmark on Marine Drive Waterfront",
-    publication: "Architectural Review India",
-    date: "Dec 2025",
+    slug: "vicint-featured-financial-express-dailyhunt",
+    title: "Vicint Featured in Financial Express on Emerging Luxury Housing Trends",
+    publication: "Financial Express (via Dailyhunt)",
+    date: "Feb 2026",
     excerpt:
-      "With its cinematic lobby volumes, bespoke brass detailing, and rare single-loaded corridors, Altair marks a new chapter in how luxury towers engage with the Marine Drive promenade.",
-  },
-  {
-    slug: "terraces-indiranagar-wins-design-award",
-    title:
-      "Terraces of Indiranagar Wins Global Award for Intimate Urban Community Design",
-    publication: "Monocle Design Journal",
-    date: "Sep 2025",
-    excerpt:
-      "Terraces of Indiranagar has been recognised for its quiet, courtyard-focused master planning that privileges greenery, cross-ventilation, and meaningful shared spaces over scale.",
-  },
-  {
-    slug: "vicint-launches-summit-reserve",
-    title:
-      "Vicint Announces Summit Reserve, a Hilltop Collection Overlooking Hyderabad’s Financial District",
-    publication: "Financial Times – Property",
-    date: "Jun 2025",
-    excerpt:
-      "Summit Reserve reflects a growing preference amongst global Indian families for elevated, low-density homes that preserve both views and privacy while remaining minutes from key business districts.",
-  },
-  {
-    slug: "vicint-green-building-commitment",
-    title: "Vicint Reinforces Commitment to High-Performance, Low-Impact Buildings",
-    publication: "Business Standard",
-    date: "Jan 2026",
-    excerpt:
-      "All upcoming Vicint developments will target advanced green building certifications, combining high-performance envelopes with elegantly integrated, resident-friendly sustainability features.",
+      "Vicint's latest developments were highlighted for their refined architectural language and focus on low-density, design-led living.",
+    url: "https://m.dailyhunt.in/news/india/english/financialexpress-epaper-dhc025105e27b7464297e4aa1b3aaf98c0/-newsid-dhc025105e27b7464297e4aa1b3aaf98c0_3c133dfda9f54d6dbb1025f72e567346?sm=Y",
+    image: "https://assets-news-bcdn.dailyhunt.in/cmd/resize/1080x1060_90/fetchdata20/images/4a/45/a7/4a45a7d9772dcacf73576513545fe507170c828743a63368bdd338b018368d8c.webp",
   },
 ];
 

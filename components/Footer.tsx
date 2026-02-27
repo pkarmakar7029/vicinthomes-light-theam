@@ -1,16 +1,18 @@
 import Link from "next/link";
-import { FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
 
 export default function Footer() {
   return (
     <footer className="bg-[color:var(--text-primary)] text-white pt-16 pb-8 mt-24">
       <div className="lux-container">
-        <div className="grid gap-12 lg:grid-cols-[2fr,1fr,1fr,1.3fr]">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:items-start">
           <div>
-            <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-xs font-semibold tracking-[0.22em] text-[color:var(--accent-brass)]">
-                VE
-              </div>
+            <div className="flex items-center gap-0">
+              <img
+                src="/logo.webp"
+                alt="Vicint Homes"
+                className="h-16 w-16 shrink-0 rounded-full object-cover sm:h-20 sm:w-20 md:h-24 md:w-24 lg:h-28 lg:w-28"
+              />
               <div className="flex flex-col">
                 <span className="font-playfair text-sm uppercase tracking-[0.32em]">
                   Vicint Homes
@@ -20,9 +22,6 @@ export default function Footer() {
                 </span>
               </div>
             </div>
-            <p className="mt-6 max-w-md text-sm text-white/75">
-              Vicint Marquis – a destination in luxury living in Ranchi, Jharkhand. Exclusively designed for those who value the best. We build your dream home.
-            </p>
           </div>
 
           <div>
@@ -72,29 +71,39 @@ export default function Footer() {
                 <span className="text-white">Phone:</span> 9264130333 · 9264129333
               </p>
             </div>
-            <div className="mt-5 flex items-center gap-3">
-              <a
-                href="#"
-                aria-label="Instagram"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition hover:border-[color:var(--accent-brass)] hover:text-[color:var(--accent-brass)]"
-              >
-                <FaInstagram className="h-4 w-4" />
-              </a>
-              <a
-                href="#"
-                aria-label="LinkedIn"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition hover:border-[color:var(--accent-brass)] hover:text-[color:var(--accent-brass)]"
-              >
-                <FaLinkedinIn className="h-4 w-4" />
-              </a>
-              <a
-                href="#"
-                aria-label="WhatsApp"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition hover:border-[color:var(--accent-brass)] hover:text-[color:var(--accent-brass)]"
-              >
-                <FaWhatsapp className="h-4 w-4" />
-              </a>
-            </div>
+          </div>
+        </div>
+
+        <div className="mt-10 flex justify-center">
+          <div className="flex items-center gap-3">
+            <a
+              href="#"
+              aria-label="Instagram"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition hover:border-[color:var(--accent-brass)] hover:text-[color:var(--accent-brass)]"
+            >
+              <FaInstagram className="h-4 w-4" />
+            </a>
+            <a
+              href="#"
+              aria-label="Facebook"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition hover:border-[color:var(--accent-brass)] hover:text-[color:var(--accent-brass)]"
+            >
+              <FaFacebookF className="h-4 w-4" />
+            </a>
+            <a
+              href="#"
+              aria-label="LinkedIn"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition hover:border-[color:var(--accent-brass)] hover:text-[color:var(--accent-brass)]"
+            >
+              <FaLinkedinIn className="h-4 w-4" />
+            </a>
+            <a
+              href="#"
+              aria-label="WhatsApp"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition hover:border-[color:var(--accent-brass)] hover:text-[color:var(--accent-brass)]"
+            >
+              <FaWhatsapp className="h-4 w-4" />
+            </a>
           </div>
         </div>
 

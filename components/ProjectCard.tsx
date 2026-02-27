@@ -2,30 +2,31 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import type { Project } from "@/lib/projectsData";
+import type { ProjectDisplay } from "@/lib/projectsData";
 
 type Props = {
-  project: Project;
+  project: ProjectDisplay;
 };
 
-const statusColors: Record<Project["status"], string> = {
+const statusColors: Record<ProjectDisplay["status"], string> = {
   Ongoing: "bg-emerald-500/10 text-emerald-700 border-emerald-400/40",
   Completed: "bg-sky-500/10 text-sky-700 border-sky-400/40",
   Upcoming: "bg-amber-500/10 text-amber-700 border-amber-400/40",
+  Government: "bg-violet-500/10 text-violet-700 border-violet-400/40",
 };
 
 export default function ProjectCard({ project }: Props) {
   return (
     <motion.article
       whileHover={{ y: -6 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="lux-card overflow-hidden flex flex-col group transition-all duration-300 hover:border-[color:var(--accent-brass)] hover:shadow-[0_20px_50px_rgba(42,42,42,0.14)]"
+      transition={{ duration: 0.1, ease: "easeOut" }}
+      className="lux-card overflow-hidden flex flex-col group transition-all duration-100 hover:border-[color:var(--accent-brass)] hover:shadow-[0_20px_50px_rgba(42,42,42,0.14)]"
     >
       <Link href={`/projects/${project.slug}`} className="flex flex-1 flex-col">
         <div className="relative overflow-hidden">
           {/* TODO: Replace with final production image */}
           <div
-            className="aspect-[4/3] bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-[1.05]"
+            className="aspect-[4/3] bg-cover bg-center transition-transform duration-100 ease-out group-hover:scale-[1.05]"
             style={{ backgroundImage: `url('${project.thumbnail}')` }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--text-primary)]/50 via-[color:var(--text-primary)]/15 to-transparent" />
@@ -38,21 +39,26 @@ export default function ProjectCard({ project }: Props) {
             <p className="text-xs text-white/80">{project.location}</p>
           </div>
         </div>
-        <div className="flex flex-1 flex-col px-6 pb-6 pt-5">
+        <div className="flex flex-1 flex-col px-6 pt-5">
           <h3 className="font-playfair text-lg text-[color:var(--text-primary)]">
             {project.name}
           </h3>
-          <p className="mt-2 text-xs text-neutral-600 line-clamp-3">
-            {project.shortDescription}
-          </p>
-          <div className="mt-4 flex items-center justify-between text-[11px] text-neutral-700">
-            <span>{project.configurations.join(" • ")}</span>
-            <span className="text-[color:var(--accent-brass)] uppercase tracking-[0.24em]">
-              View
-            </span>
-          </div>
+          {project.shortDescription ? (
+            <p className="mt-2 text-xs text-neutral-600 line-clamp-3">
+              {project.shortDescription}
+            </p>
+          ) : null}
         </div>
       </Link>
+      <div className="flex items-center justify-between px-6 pb-6 pt-2 text-[11px] text-neutral-700">
+        {project.cost != null ? <span>₹ {project.cost} Cr</span> : <span />}
+        <Link
+          href="/contact"
+          className="text-[color:var(--accent-brass)] uppercase tracking-[0.24em] hover:underline"
+        >
+          Know more
+        </Link>
+      </div>
     </motion.article>
   );
 }

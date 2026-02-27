@@ -8,10 +8,8 @@ export const metadata: Metadata = {
     "Vicint Marquis is a destination in luxury living in Ranchi, Jharkhand. About us, our vision, mission, and leadership. Quality, aesthetics, style with a difference.",
 };
 
-const ABOUT_HERO_IMAGE =
-  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200";
-const CEO_IMAGE =
-  "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400";
+const ABOUT_HERO_IMAGE = "/4copy.jpeg";
+const CEO_IMAGE = "/PankajKumar.png";
 
 export default function AboutPage() {
   return (
@@ -33,10 +31,11 @@ export default function AboutPage() {
               Vicint Marquis is where the connoisseurs of premium living find inspiration and get pampered. Here, one can simply explore life&apos;s joys and comforts, that are widely admired. They can enjoy the marvellous and timeless standards and understand why it is one of the finest examples of a unique lifestyle that&apos;s truly grand.
             </p>
           </div>
-          <div className="lux-card overflow-hidden">
-            <div
-              className="aspect-[4/3] bg-cover bg-center"
-              style={{ backgroundImage: `url('${ABOUT_HERO_IMAGE}')` }}
+          <div className="lux-card mx-auto overflow-hidden p-0 w-fit max-w-full">
+            <img
+              src={ABOUT_HERO_IMAGE}
+              alt="Vicint Marquis"
+              className="block max-h-[700px] sm:max-h-[780px] lg:max-h-[880px] max-w-full h-auto rounded-2xl"
             />
           </div>
         </div>
@@ -69,10 +68,11 @@ export default function AboutPage() {
               title="Pankaj Kumar"
               subtitle="CEO, Vicint Homes Pvt. Ltd."
             />
-            <div className="mt-6 overflow-hidden rounded-2xl border border-[color:var(--border-soft)] bg-[color:var(--background-soft)]/50">
-              <div
-                className="aspect-[4/3] bg-cover bg-center"
-                style={{ backgroundImage: `url('${CEO_IMAGE}')` }}
+            <div className="mx-auto mt-6 max-w-md overflow-hidden rounded-2xl border border-[color:var(--border-soft)] bg-[color:var(--background-soft)]/50 aspect-[4/5] max-h-[380px] sm:max-h-[420px]">
+              <img
+                src={CEO_IMAGE}
+                alt="Pankaj Kumar, CEO"
+                className="block h-full w-full object-cover object-center"
               />
             </div>
             <p className="mt-6 text-sm text-neutral-700 leading-relaxed">
