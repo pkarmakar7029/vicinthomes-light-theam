@@ -27,11 +27,54 @@ const selectClass =
 
 export default function PrivateConsultationForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Ready for backend: form data can be collected via FormData(e.currentTarget) or controlled state
-    setSubmitted(true);
+    setError(null);
+    setLoading(true);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const payload = {
+      formType: "consultation" as const,
+      fullName: (formData.get("fullName") ?? "") as string,
+      email: (formData.get("email") ?? "") as string,
+      phone: (formData.get("phone") ?? "") as string,
+      city: (formData.get("city") ?? "") as string,
+      budget: (formData.get("budget") ?? "") as string,
+      timeline: (formData.get("timeline") ?? "") as string,
+      propertyType: (formData.get("propertyType") ?? "") as string,
+      mode: (formData.get("mode") ?? "") as string,
+      preferredDate: (formData.get("preferredDate") ?? "") as string,
+      preferredTime: (formData.get("preferredTime") ?? "") as string,
+      notes: (formData.get("notes") ?? "") as string,
+      company: (formData.get("company") ?? "") as string,
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.error ?? "Something went wrong. Please try again.");
+        setLoading(false);
+        return;
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      console.error("Consultation form submit error:", err);
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -48,20 +91,22 @@ export default function PrivateConsultationForm() {
           <input
             name="fullName"
             required
+            minLength={2}
             placeholder="Full Name"
             className="lux-input-dark"
           />
           <input
             name="email"
-            required
             type="email"
+            required
             placeholder="Email Address"
             className="lux-input-dark"
           />
           <input
             name="phone"
-            required
             type="tel"
+            required
+            pattern="[0-9]{10}"
             placeholder="Phone Number"
             className="lux-input-dark"
           />
@@ -196,18 +241,32 @@ export default function PrivateConsultationForm() {
         <textarea
           name="notes"
           id="notes"
+          minLength={10}
           placeholder="Additional Notes"
           className="lux-textarea-dark min-h-[100px]"
           rows={4}
         />
       </div>
 
+      <input
+        type="text"
+        name="company"
+        className="hidden"
+        tabIndex={-1}
+        autoComplete="off"
+      />
       <button
         type="submit"
+        disabled={loading}
         className="mt-2 inline-flex w-full items-center justify-center rounded-full lux-cta lux-cta-primary px-6 py-3.5 text-[11px] font-semibold uppercase tracking-[0.26em] text-[color:var(--text-primary)] transition hover:scale-[1.02]"
       >
-        {submitted ? "Request Received" : "Request Private Appointment"}
+        {submitted ? "Request Received" : loading ? "Sending..." : "Request Private Appointment"}
       </button>
+      {error && (
+        <p className="pt-1 text-center text-[11px] text-red-600">
+          {error}
+        </p>
+      )}
       {submitted && (
         <p className="pt-1 text-center text-[11px] text-emerald-700">
           Our team will confirm your appointment within one business day.
